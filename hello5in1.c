@@ -5,14 +5,12 @@
 #  *         bash hello5in1.c
 #  */
 #include <stdio.h>
-#define true int main(void);int main(void) {
-#define printf printf(
-true;
+#define printf int main(void) { write(1,
 printf "Hello World\n" ,
 # /* 
 true;exit 0; 1;
 __END__
 */
-NULL);
+12);
 return(0);
 };
