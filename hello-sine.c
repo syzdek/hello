@@ -5,7 +5,7 @@
 #include <math.h>
 double HelloWorld(double x, double w, int z)
 {
-   printf("\033[%i;%iH%c", z+1, (int)((sin(((x-((double)(z*2)))*(360.0/w))/57.3)*(w/2.0))+((w/2.0)-1.0)), __FUNCTION__[z]);
+   printf("\033[%i;%iH%c", z+1, (int)((sin(((x-((double)(z*2)))*(360.0/w))/57.3)*(w/2.0))+((w/2.0)+1.0)), __FUNCTION__[z]);
    return(z++ < 10 ? HelloWorld(x, w, z) : 1.0);
 }
 int main(int argc, char * argv[])
