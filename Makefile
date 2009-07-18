@@ -1,13 +1,9 @@
 
-PROGRAMS = hello-ansi hello-errno hello5in1
+PROGRAMS = hello-ansi hello-errno hello-sine hello5in1
 
 all: $(PROGRAMS)
 
-hello-ansi: hello-ansi.c
-
-hello-errno: hello-errno.c
-
-hello5in1: hello5in1.c
+$(PROGRAMS):
 
 clean:
 	rm -f $(PROGRAMS)
