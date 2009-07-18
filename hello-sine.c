@@ -9,9 +9,12 @@ double HelloWorld(double x, double w, int z)
 }
 int main(int argc, char * argv[])
 {
-   double x = 0.0;
-   struct ttysize ts;
-   J1: x += HelloWorld(x, (double)ts.ts_cols, ioctl(0, TIOCGWINSZ, &ts));
+   double x = 0.0, b[512];
+#ifdef TIOCGSIZE
+   J1: x += HelloWorld(x, ioctl(0, TIOCGSIZE, &b) ? 80 : ((struct ttysize *)b)->ts_cols, 0);
+#else
+   J1: x += HelloWorld(x, ioctl(0, TIOCGWINSZ, &b) ? 80 : ((struct winsize *)b)->ws_col, 0);
+#endif
    fflush(stdout);
    usleep(60000);
    printf("\033[2J\033[512;512H");
