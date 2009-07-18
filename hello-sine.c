@@ -1,3 +1,4 @@
+/* gcc -o hello-sine hello-sine.c -lm */
 #include <stdio.h>
 #include <termios.h>
 #include <sys/ioctl.h>
