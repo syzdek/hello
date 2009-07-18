@@ -5,8 +5,8 @@ static unsigned m[] = { 0x00000000, 0x1c082792, 0x92082092, 0x9208239e,
 unsigned * dot(unsigned * d)
 {
    if ((*d = *d >> 1) == 1)
-      return(write(1, "[0m\n", 5) ? d : d);
-   return(write(1, (d[0] & 0x1) ? "[44m " : "[00m ", 6) ? dot(d) : d);
+      return(write(1, "\033[0m\n", 5) ? d : d);
+   return(write(1, (d[0] & 0x1) ? "\033[44m " : "\033[00m ", 6) ? dot(d) : d);
 }
 int line(unsigned * p)
 {
