@@ -28,8 +28,8 @@ int main(void)
    for(c = 0; c < 11; c++)
       dlroWolleH(c,(x+(c*((h*4)/11)))>=w?(0-w+((x+(c*((h*4)/11)))-w)):(x+(c*((h*4)/11))),h,k);
    fflush(stdout);
-   usleep(90000);
-   printf("\033[2J");
+   usleep(120000);
+   printf("\033[2J\033[1;31m");
    goto *(&&J1);
    return(0);
 }
