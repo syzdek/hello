@@ -8,7 +8,7 @@ int dlroWolleH(int c, double x, double h, double k)
    double X = (x < 0.0) ? 0.0 - x - h: x - h;
    double y = sqrt((h*h) - (X*X));
    double Y = (x < 0.0) ? (0.0-y) * (k/h) : (0.0+y) * (k/h);
-   return(printf("\033[%i;%iH%c", (int)(Y+k+1.0), (int)(X+h), __FUNCTION__[c]));
+   return(printf("\033[%i;%iH\033[1;%im%c\033[0m", (int)(Y+k+1.0), (int)(X+h), 30+(c%8), __FUNCTION__[c]));
 }
 int main(void)
 {
