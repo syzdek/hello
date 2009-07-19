@@ -17,7 +17,7 @@ int main(void)
 #ifdef TIOCGSIZE
    J1: ioctl(0, TIOCGSIZE, &win);
    h = ((double)((struct ttysize *)win)->ts_cols) / 2.0;
-   k = ((double)((struct ttysize *)win)->ts_rows) / 2.0;
+   k = ((double)((struct ttysize *)win)->ts_lines) / 2.0;
 #else
    J1: ioctl(0, TIOCGWINSZ, &win);
    h = ((double)((struct winsize *)win)->ws_col) / 2.0;

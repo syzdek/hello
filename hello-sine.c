@@ -15,7 +15,7 @@ int main(int argc, char * argv[])
 {
    double x = 0.0, b[512];
 #ifdef TIOCGSIZE
-   J1: x += HelloWorld(x, ((struct ttysize *)b)->ts_rows,
+   J1: x += HelloWorld(x, ((struct ttysize *)b)->ts_lines,
             ioctl(0,TIOCGSIZE,&b) ? 80 : ((struct ttysize *)b)->ts_cols, 0);
 #else
    J1: x += HelloWorld(x, ((struct winsize *)b)->ws_row,
