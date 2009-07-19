@@ -5,10 +5,10 @@
 #include <math.h>
 double HelloWorld(double x, double h, double w, int z)
 {
-   printf("\033[%i;%iH%c",
+   printf("\033[%i;%iH\033[1;%im%c\033[0m",
       (int)((sin(((x-((double)(z*2)))*(360.0/h))/57.3)*(h/2.0))+((h/2.0)+1.0)),
       (int)((sin(((x-((double)(z*2)))*(360.0/w))/57.3)*(w/2.0))+((w/2.0)+1.0)),
-      __FUNCTION__[z]);
+      30+(z%8) , __FUNCTION__[z]);
    return(z++ < 10 ? HelloWorld(x, h, w, z) : 1.0);
 }
 int main(int argc, char * argv[])
@@ -22,7 +22,7 @@ int main(int argc, char * argv[])
             ioctl(0,TIOCGWINSZ,&b) ? 80 : ((struct winsize *)b)->ws_col, 0);
 #endif
    fflush(stdout);
-   usleep(60000);
+   usleep(90000);
    printf("\033[2J\033[512;512H");
    goto *(&&J1);
 }
